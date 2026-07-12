@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنيو الملكي الفاخر</title>
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-gold: #aa7c11;
+            --bg-dark: #0b0c10;
+            --card-bg: #1f2833;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.3);
+        }
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            color: var(--gold);
+            border-right: 4px solid var(--gold);
+            padding-right: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .menu-item {
+            background: var(--card-bg);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .item-info h3 {
+            margin: 0 0 5px 0;
+            color: #fff;
+        }
+        .item-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .price {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        /* زر نداء الكابتن الثابت */
+        .call-captain-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(31, 40, 51, 0.95);
+            border: 2px solid var(--gold);
+            padding: 15px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+        .call-captain-panel input {
+            width: 80px;
+            padding: 10px;
+            border: 1px solid var(--gold);
+            background: #000;
+            color: var(--gold);
+            border-radius: 25px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .call-btn {
+            background: linear-gradient(45deg, var(--dark-gold), var(--gold));
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .call-btn:disabled {
+            background: #444;
+            color: #888;
+            cursor: not-allowed;
+        }
+        .timer-text {
+            color: #ff4d4d;
+            font-size: 0.9rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>القصر الملكي للمأكولات</h1>
+        <p>تجربة طعام فاخرة لا تُنسى</p>
+    </div>
+
+    <!-- سيتم ملء هذا الجزء ديناميكيًا من الـ LocalStorage أو العرض الافتراضي -->
+    <div id="menu-container"></div>
+
+    <!-- لوحة نداء الكابتن -->
+    <div class="call-captain-panel">
+        <label for="table-num" style="color: var(--gold); font-weight: bold;">رقم الطاولة:</label>
+        <input type="number" id="table-num" min="1" max="50" placeholder="00">
+        <button class="call-btn" id="call-btn" onclick="callCaptain()">نداء الكابتن 🛎️</button>
+        <span id="timer" class="timer-text"></span>
+    </div>
+
+    <script>
+        // الأقسام والوجبات الافتراضية في حال عدم وجود تعديل من الكابتن
+        const defaultMenu = [
+            {
+                category: "المقبلات الملكية",
+                items: [
+                    { name: "شوربة الفطر بالكريمة والزعفران", desc: "شوربة غنية بنكهة الزعفران الأصيل", price: "25000 د.ع" },
+                    { name: "كافيار ملكي فاخر", desc: "يقدم مع قطع الخبز المحمص والزبدة", price: "75000 د.ع" }
+                ]
+            },
+            {
+                category: "الأطباق الرئيسية",
+                items: [
+                    { name: "ضلوع الغنم المشوية بماء الذهب", desc: "تطهى ببطء لمدة 8 ساعات", price: "120000 د.ع" },
+                    { name: "ستيك التندرلوين الفاخر", desc: "لحم بقري أنغوس مع صلصة الفلفل الأسود", price: "95000 د.ع" }
+                ]
+            }
+        ];
+
+        // تحميل المنيو
+        function loadMenu() {
+            const savedMenu = localStorage.getItem('royalMenu');
+            const menu = savedMenu ? JSON.parse(savedMenu) : defaultMenu;
+            const container = document.getElementById('menu-container');
+            container.innerHTML = '';
+
+            menu.forEach(section => {
+                let sectionHtml = `<div class="menu-section">
+                    <h2 class="section-title">${section.category}</h2>
+                    <div class="menu-grid">`;
+                
+                section.items.forEach(item => {
+                    sectionHtml += `
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h3>${item.name}</h3>
+                                <p>${item.desc}</p>
+                            </div>
+                            <div class="price">${item.price}</div>
+                        </div>`;
+                });
+
+                sectionHtml += `</div></div>`;
+                container.innerHTML += sectionHtml;
+            });
+        }
+
+        // دالة نداء الكابتن مع شروط الحماية
+        function callCaptain() {
+            const tableInput = document.getElementById('table-num').value;
+            const callBtn = document.getElementById('call-btn');
+            const timerText = document.getElementById('timer');
+
+            if (!tableInput || tableInput < 1 || tableInput > 50) {
+                alert("يرجى إدخال رقم طاولة صحيح بين 1 و 50");
+                return;
+            }
+
+            // إرسال التنبيه للكابتن عبر الـ LocalStorage
+            let activeCalls = JSON.parse(localStorage.getItem('activeCalls')) || [];
+            if (!activeCalls.includes(parseInt(tableInput))) {
+                activeCalls.push(parseInt(tableInput));
+                localStorage.setItem('activeCalls', JSON.stringify(activeCalls));
+            }
+
+            alert(`تم إرسال النداء للطاولة رقم ${tableInput}. الكابتن في طريقه إليك.`);
+
+            // تفعيل حظر الـ 3 دقائق (180 ثانية)
+            callBtn.disabled = true;
+            let timeLeft = 180; 
+            timerText.style.display = "inline";
+
+            const countdown = setInterval(() => {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerText.innerText = `يمكنك المحاولة مجدداً بعد ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                timeLeft--;
+
+                if (timeLeft < 0) {
+                    clearInterval(countdown);
+                    callBtn.disabled = false;
+                    timerText.style.display = "none";
+                }
+            }, 1000);
+        }
+
+        // تحديث المنيو تلقائياً إذا غيره الكابتن
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'royalMenu') loadMenu();
+        });
+
+        loadMenu();
+    </script>
+</body>
+</html>
