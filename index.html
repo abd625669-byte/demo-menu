@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مركز هالة للحلويات والكيك | Hala Sweets Center</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- استيراد خطوط ناعمة ورشيقة للغاية لدعم جمالية النص والنعومة -->
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <style>
         :root {
             --white: #ffffff;
-            --royal-indigo: #050a1e; 
-            --indigo-accent: #0f173d; 
-            --gold: #d4af37; 
-            --gray-bg: #f9fbfd;
+            --royal-indigo: #030712; /* نيلي ملكي غامق جداً وناعم */
+            --indigo-accent: #0b112c; 
+            --gold-bright: #f3e5ab; /* ذهبي ناصع، فاتح ومشّع بتناغم رائع */
+            --gold-border: #e6cb7b; /* ذهبي رقيق للخطوط الفاصلة */
+            --gray-bg: #fafbfc;
             --transition-palace: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -24,86 +26,89 @@
         body {
             background-color: var(--white);
             color: var(--royal-indigo);
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Alexandria', sans-serif; /* خط الكتروني حديث، رقيق وناعم جداً */
+            font-weight: 300;
             overflow-x: hidden;
         }
 
         header {
             background-color: var(--royal-indigo);
             color: var(--white);
-            padding: 20px 8%;
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(5, 10, 30, 0.15);
+            border-bottom: 1px solid var(--gold-border);
+            box-shadow: 0 4px 20px rgba(3, 7, 18, 0.08);
         }
 
         .logo-box h1 {
-            font-family: 'Amiri', serif;
-            font-size: 2.4rem;
-            color: var(--gold);
-            line-height: 1;
+            font-size: 1.8rem;
+            font-weight: 400; /* جعل الخط ناعماً ورقيقاً */
+            color: var(--gold-bright);
+            letter-spacing: 0.5px;
         }
 
         .logo-box span {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 3px;
             display: block;
             color: var(--white);
-            opacity: 0.9;
-            margin-top: 5px;
+            opacity: 0.8;
+            margin-top: 3px;
         }
 
+        /* واجهة الترحيب بنصوص رشيقة ناعمة */
         .welcome-hero {
-            padding: 100px 20px;
+            padding: 90px 20px;
             text-align: center;
             background: linear-gradient(180deg, var(--royal-indigo) 0%, var(--indigo-accent) 100%);
             color: var(--white);
-            position: relative;
-            border-bottom: 2px solid var(--gold);
+            border-bottom: 1px solid var(--gold-border);
         }
 
         .welcome-title {
-            font-family: 'Amiri', serif;
-            font-size: 3.5rem;
-            color: var(--gold);
+            font-size: 2.5rem;
+            color: var(--gold-bright);
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 300; /* خط ترحيبي ناعم وجميل */
         }
 
         .welcome-text {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             max-width: 750px;
-            margin: 0 auto 15px auto;
-            line-height: 1.8;
-            font-weight: 300;
-            opacity: 0.95;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-weight: 200;
+            opacity: 0.9;
         }
 
+        /* أزرار الأقسام الدقيقة النحيفة */
         .tabs-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            padding: 30px 20px;
+            gap: 15px;
+            padding: 25px 20px;
             background-color: var(--gray-bg);
             position: sticky;
-            top: 90px;
+            top: 75px;
             z-index: 999;
-            border-bottom: 1px solid rgba(5, 10, 30, 0.05);
+            border-bottom: 1px solid rgba(3, 7, 18, 0.03);
         }
 
         .tab-btn {
             background: var(--white);
-            border: 2px solid var(--royal-indigo);
+            border: 1px solid var(--royal-indigo);
             color: var(--royal-indigo);
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            font-weight: 700;
+            padding: 10px 25px;
+            font-size: 0.95rem;
+            font-weight: 300;
+            font-family: 'Alexandria', sans-serif;
             cursor: pointer;
             transition: var(--transition-palace);
         }
@@ -111,15 +116,16 @@
         .tab-btn.active, .tab-btn:hover {
             background-color: var(--royal-indigo);
             color: var(--white);
-            border-color: var(--gold);
+            border-color: var(--gold-border);
         }
 
         .section-title {
             text-align: center;
-            margin: 60px 0 30px 0;
-            font-family: 'Amiri', serif;
-            font-size: 2.8rem;
+            margin: 50px 0 25px 0;
+            font-size: 1.8rem;
+            font-weight: 300;
             color: var(--royal-indigo);
+            letter-spacing: 0.5px;
         }
 
         .grid-container {
@@ -128,19 +134,20 @@
             padding: 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-            gap: 40px;
+            gap: 35px;
         }
 
+        /* كارت العرض العمودي الناعم */
         .product-card {
             background-color: var(--white);
-            border: 1px solid rgba(5, 10, 30, 0.1);
+            border: 1px solid rgba(3, 7, 18, 0.08);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(5, 10, 30, 0.04);
+            box-shadow: 0 10px 30px rgba(3, 7, 18, 0.02);
             transition: var(--transition-palace);
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
         }
 
         .product-card.visible {
@@ -149,14 +156,14 @@
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(5, 10, 30, 0.12);
-            border-color: var(--gold);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(3, 7, 18, 0.08);
+            border-color: var(--gold-border);
         }
 
         .image-wrapper {
             width: 100%;
-            height: 320px;
+            height: 310px;
             overflow: hidden;
             position: relative;
             background-color: var(--royal-indigo);
@@ -166,95 +173,101 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .product-card:hover .product-img {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
 
+        /* شارة سعر بلون ناصع وخط ناعم */
         .price-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background-color: var(--royal-indigo);
-            color: var(--gold);
-            padding: 8px 18px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border: 1px solid var(--gold);
+            color: var(--gold-bright);
+            padding: 6px 14px;
+            font-weight: 300;
+            font-size: 0.95rem;
+            border: 1px solid var(--gold-border);
         }
 
         .product-details {
-            padding: 30px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            border-top: 2px solid var(--royal-indigo);
+            border-top: 1px solid rgba(3, 7, 18, 0.05);
         }
 
         .title-ar {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 400;
             color: var(--royal-indigo);
+            margin-bottom: 2px;
         }
 
         .title-en {
             font-family: 'Playfair Display', serif;
-            font-size: 1.05rem;
-            color: var(--gold);
+            font-size: 0.95rem;
+            color: #b0914f; /* درجة ناعمة متناسقة للانجليزي */
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .ingredients-box {
             background-color: var(--gray-bg);
-            padding: 15px;
-            margin-bottom: 20px;
-            border-right: 3px solid var(--gold);
+            padding: 12px;
+            margin-bottom: 18px;
+            border-right: 2px solid var(--gold-border);
             flex-grow: 1;
         }
 
         .ing-label {
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 400;
             color: var(--royal-indigo);
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             display: block;
         }
 
         .ing-text-ar {
-            font-size: 0.95rem;
-            color: #4a5568;
+            font-size: 0.85rem;
+            color: #52525b;
+            line-height: 1.6;
         }
 
         .order-trigger-btn {
             background: var(--royal-indigo);
             color: var(--white);
             border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: 700;
+            padding: 11px 20px;
+            font-size: 0.9rem;
+            font-weight: 300;
+            font-family: 'Alexandria', sans-serif;
             cursor: pointer;
             transition: var(--transition-palace);
             width: 100%;
             text-align: center;
+            letter-spacing: 0.3px;
         }
 
         .order-trigger-btn:hover {
-            background-color: var(--gold);
-            color: var(--royal-indigo);
+            background-color: var(--royal-indigo);
+            color: var(--gold-bright);
+            box-shadow: inset 0 0 0 1px var(--gold-border);
         }
 
-        /* نافذة استمارة الطلب المنبثقة الفخمة (Popup Modal) */
+        /* نافذة الطلب المنبثقة الدقيقة */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(5, 10, 30, 0.7);
-            backdrop-filter: blur(5px);
+            background: rgba(3, 7, 18, 0.6);
+            backdrop-filter: blur(4px);
             z-index: 2000;
             display: flex;
             justify-content: center;
@@ -272,10 +285,9 @@
         .modal-box {
             background: var(--white);
             width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            border-top: 5px solid var(--gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 480px;
+            padding: 25px;
+            border-top: 3px solid var(--gold-border);
             position: relative;
             transform: scale(0.8);
             transition: var(--transition-palace);
@@ -286,12 +298,12 @@
         }
 
         .modal-title {
-            font-family: 'Amiri', serif;
-            font-size: 1.8rem;
+            font-size: 1.3rem;
+            font-weight: 400;
             color: var(--royal-indigo);
-            margin-bottom: 20px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 8px;
         }
 
         .close-modal {
@@ -300,112 +312,118 @@
             left: 15px;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
             color: var(--royal-indigo);
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .form-group label {
             display: block;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 5px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin-bottom: 4px;
             color: var(--royal-indigo);
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #cbd5e1;
-            font-family: 'Cairo', sans-serif;
-            font-size: 0.95rem;
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            font-family: 'Alexandria', sans-serif;
+            font-weight: 300;
+            font-size: 0.85rem;
             color: var(--royal-indigo);
+            background-color: var(--gray-bg);
         }
 
         .gps-btn {
-            background-color: #f1f5f9;
+            background-color: #ffffff;
             border: 1px dashed var(--royal-indigo);
             color: var(--royal-indigo);
-            padding: 10px;
+            padding: 9px;
             width: 100%;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 300;
+            font-family: 'Alexandria', sans-serif;
+            font-size: 0.85rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 15px;
+            gap: 6px;
+            margin-bottom: 12px;
             transition: var(--transition-palace);
         }
 
         .gps-btn.success {
-            background-color: #ecfdf5;
+            background-color: #f0fdf4;
             border-color: #10b981;
-            color: #065f46;
+            color: #115e59;
         }
 
         .submit-order-btn {
-            background-color: #25d366;
+            background-color: #16a34a;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 10px;
             width: 100%;
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 0.95rem;
+            font-weight: 300;
+            font-family: 'Alexandria', sans-serif;
             cursor: pointer;
             transition: var(--transition-palace);
         }
 
         .submit-order-btn:hover {
-            background-color: #1ebd54;
+            background-color: #15803d;
         }
 
         footer {
             background-color: var(--royal-indigo);
             color: var(--white);
             text-align: center;
-            padding: 60px 20px;
-            margin-top: 100px;
-            border-top: 2px solid var(--gold);
+            padding: 50px 20px;
+            margin-top: 80px;
+            border-top: 1px solid var(--gold-border);
         }
 
         .footer-logo {
-            font-family: 'Amiri', serif;
-            font-size: 2.2rem;
-            color: var(--gold);
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--gold-bright);
+            margin-bottom: 12px;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
+            gap: 20px;
+            margin-top: 25px;
             flex-wrap: wrap;
         }
 
         .footer-link {
-            color: var(--gold);
+            color: var(--gold-bright);
             text-decoration: none;
-            border: 1px solid var(--gold);
-            padding: 8px 20px;
-            font-weight: 600;
+            border: 1px solid var(--gold-border);
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            font-weight: 300;
             transition: var(--transition-palace);
         }
 
         .footer-link:hover {
-            background-color: var(--gold);
+            background-color: var(--gold-bright);
             color: var(--royal-indigo);
         }
 
         @media (max-width: 500px) {
             .grid-container { grid-template-columns: 1fr; }
-            .welcome-title { font-size: 2.3rem; }
-            .image-wrapper { height: 240px; }
+            .welcome-title { font-size: 1.8rem; }
+            .image-wrapper { height: 230px; }
         }
     </style>
 </head>
@@ -416,7 +434,7 @@
             <h1>مركز هالة</h1>
             <span>HALA SWEETS CENTER</span>
         </div>
-        <div style="font-weight: bold; color: var(--gold); font-size: 0.95rem;">اليرموك، بغداد</div>
+        <div style="font-weight: 300; color: var(--gold-bright); font-size: 0.85rem; letter-spacing: 0.3px;">اليرموك، بغداد</div>
     </header>
 
     <section class="welcome-hero">
@@ -449,16 +467,15 @@
             </div>
 
             <div class="form-group">
-                <label for="custNotes">ملاحظات على الطلب (الكتابة على الكيك، الحجم، التعديلات):</label>
+                <label for="custNotes">ملاحظات على الطلب (الكتابة على الكيك، التعديلات):</label>
                 <textarea id="custNotes" rows="3" placeholder="أضف أي ملاحظات خاصة هنا..."></textarea>
             </div>
 
-            <!-- زر تحديد الـ GPS الجغرافي التلقائي -->
             <button class="gps-btn" id="gpsBtn" onclick="getLocation()">
-                📍 اضغط هنا لإرفاق موقع الـ GPS التلقائي لعنوانك
+                📍 اضغط لإرفاق موقع الـ GPS التلقائي لعنوانك
             </button>
 
-            <button class="submit-order-btn" onclick="sendToWhatsApp()">🚀 إرسال الطلب عبر الواتساب المباشر</button>
+            <button class="submit-order-btn" onclick="sendToWhatsApp()">🚀 إرسال الطلب عبر الواتساب</button>
         </div>
     </div>
 
@@ -468,7 +485,7 @@
             <a class="footer-link" href="https://maps.google.com/?q=Al-Yarmouk+Baghdad" target="_blank">📍 موقعنا على Google Maps</a>
             <a class="footer-link" href="https://wa.me/9647713561219" target="_blank">💬 تواصل معنا مباشرة</a>
         </div>
-        <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 40px;">جميع الحقوق محفوظة لـ مركز هالة © 2026</p>
+        <p style="font-size: 0.75rem; opacity: 0.5; margin-top: 35px; letter-spacing: 0.3px;">جميع الحقوق محفوظة لـ مركز هالة © 2026</p>
     </footer>
 
     <script>
@@ -519,7 +536,7 @@
                             <p class="ing-text-ar">${item.ingAr}</p>
                         </div>
                         <button class="order-trigger-btn" onclick="openModal('${item.ar} #${i}', '${priceStr}')">
-                            ✨ اطلب الآن واقفل تفاصيل الطلب
+                            ✨ اطلب الآن
                         </button>
                     </div>
                 `;
@@ -530,19 +547,17 @@
         generateSweetsAndCakes('cakes-grid', cakeTemplates, 30000);
         generateSweetsAndCakes('sweets-grid', sweetTemplates, 18000);
 
-        // وظائف النافذة المنبثقة والـ GPS والواتساب
         function openModal(title, price) {
             selectedProduct = title;
             selectedPrice = price;
             document.getElementById('modalProductTitle').innerText = `طلب لـ: ${title} (${price})`;
             document.getElementById('orderModal').classList.add('active');
             
-            // إعادة ضبط حقول الاستمارة
             document.getElementById('custName').value = "";
             document.getElementById('custNotes').value = "";
             userLatitude = ""; userLongitude = "";
             const gpsBtn = document.getElementById('gpsBtn');
-            gpsBtn.innerText = "📍 اضغط هنا لإرفاق موقع الـ GPS التلقائي لعنوانك";
+            gpsBtn.innerText = "📍 اضغط لإرفاق موقع الـ GPS التلقائي لعنوانك";
             gpsBtn.classList.remove('success');
         }
 
@@ -550,57 +565,53 @@
             document.getElementById('orderModal').classList.remove('active');
         }
 
-        // استخراج موقع الـ GPS الحقيقي من جهاز المستخدم عبر المتصفح
         function getLocation() {
             const gpsBtn = document.getElementById('gpsBtn');
             if (navigator.geolocation) {
-                gpsBtn.innerText = "جاري تحديد موقعك الجغرافي...";
+                gpsBtn.innerText = "جاري تحديد إحداثيات موقعك...";
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
                         userLatitude = position.coords.latitude;
                         userLongitude = position.coords.longitude;
-                        gpsBtn.innerText = "✓ تم التقاط موقع الـ GPS بنجاح";
+                        gpsBtn.innerText = "✓ تم تحديد موقع الـ GPS بنجاح";
                         gpsBtn.classList.add('success');
                     },
                     (error) => {
-                        alert("يرجى إعطاء صلاحية تحديد الموقع للمتصفح حتى نتمكن من إرسال لوكيشن عنوانك.");
+                        alert("يرجى تفعيل صلاحية الموقع للمتصفح لمشاركة لوكيشن عنوانك.");
                         gpsBtn.innerText = "❌ فشل التقاط الموقع - اضغط للمحاولة";
                     }
                 );
             } else {
-                alert("تحديد الموقع الجغرافي غير مدعوم في متصفحك الحالي.");
+                alert("تحديد الموقع غير مدعوم في متصفحك الحالي.");
             }
         }
 
-        // إرسال البيانات المنسقة بالكامل إلى رقم الواتساب المباشر للمركز
         function sendToWhatsApp() {
             const name = document.getElementById('custName').value.trim();
             const notes = document.getElementById('custNotes').value.trim() || "لا توجد ملاحظات إضافية";
             
             if (!name) {
-                alert("يرجى كتابة اسمك الكريم لإتمام الطلب.");
+                alert("يرجى كتابة اسمك الكريم لإتمام عملية الطلب.");
                 return;
             }
 
-            let gpsLink = "لم يتم مشاركة اللوكيشن الإلكتروني";
+            let gpsLink = "لم يتم مشاركة اللوكيشن الجغرافي";
             if (userLatitude && userLongitude) {
                 gpsLink = `https://www.google.com/maps?q=${userLatitude},${userLongitude}`;
             }
 
-            // صياغة نص الرسالة الفخمة الموجهة لمركز هالة الحلويات
             const textMessage = `*طلب جديد من موقع مركز هالة للحلويات* 🍰\n\n` +
                                 `• *اسم الزبون:* ${name}\n` +
                                 `• *المنتج المطلوب:* ${selectedProduct}\n` +
                                 `• *السعر الإجمالي:* ${selectedPrice}\n` +
                                 `• *ملاحظات الزبون:* ${notes}\n\n` +
-                                `📍 *لوكيشن الـ GPS المباشر للعنوان:* \n${gpsLink}`;
+                                `📍 *رابط لوكيشن الـ GPS المباشر للعنوان:* \n${gpsLink}`;
 
             const finalWhatsAppUrl = `https://wa.me/9647713561219?text=${encodeURIComponent(textMessage)}`;
             window.open(finalWhatsAppUrl, '_blank');
             closeModal();
         }
 
-        // مراقب الحركة للتمرير (Scroll Motion)
         const observerOptions = { threshold: 0.05, rootMargin: "0px 0px -40px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
