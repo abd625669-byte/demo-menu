@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>القصر الملكي للحلويات | Royal Sweets Palace</title>
+    <title>مركز هالة للحلويات والكيك | Hala Sweets Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --white: #ffffff;
-            --royal-indigo: #070b19; /* نيلي ملكي غامق جداً */
-            --indigo-accent: #111a36; /* نيلي متوسط للمسات التباين */
-            --gold: #c5a880; /* لمسة ذهبية للفخامة */
-            --gray-bg: #fbfbfd;
-            --transition-palace: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --royal-indigo: #050a1e; 
+            --indigo-accent: #0f173d; 
+            --gold: #d4af37; 
+            --gray-bg: #f9fbfd;
+            --transition-palace: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -28,11 +28,10 @@
             overflow-x: hidden;
         }
 
-        /* الهيدر الفخم */
         header {
             background-color: var(--royal-indigo);
             color: var(--white);
-            padding: 25px 8%;
+            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -40,73 +39,52 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(7, 11, 25, 0.15);
+            box-shadow: 0 10px 30px rgba(5, 10, 30, 0.15);
         }
 
         .logo-box h1 {
             font-family: 'Amiri', serif;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: var(--gold);
             line-height: 1;
         }
 
         .logo-box span {
             font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             letter-spacing: 2px;
             display: block;
             color: var(--white);
-            opacity: 0.8;
+            opacity: 0.9;
+            margin-top: 5px;
         }
 
-        /* رسالة ترحيبية فخمة جداً */
         .welcome-hero {
             padding: 100px 20px;
             text-align: center;
             background: linear-gradient(180deg, var(--royal-indigo) 0%, var(--indigo-accent) 100%);
             color: var(--white);
             position: relative;
-            border-bottom: 3px double var(--gold);
-        }
-
-        .welcome-hero::after {
-            content: '';
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background-color: var(--gold);
+            border-bottom: 2px solid var(--gold);
         }
 
         .welcome-title {
             font-family: 'Amiri', serif;
             font-size: 3.5rem;
             color: var(--gold);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 700;
-            letter-spacing: 1px;
         }
 
         .welcome-text {
-            font-size: 1.25rem;
-            max-width: 800px;
+            font-size: 1.3rem;
+            max-width: 750px;
             margin: 0 auto 15px auto;
             line-height: 1.8;
             font-weight: 300;
             opacity: 0.95;
         }
 
-        .welcome-text-en {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--gold);
-            opacity: 0.8;
-        }
-
-        /* التبويبات للتنقل بين الأقسام الضحمة */
         .tabs-container {
             display: flex;
             justify-content: center;
@@ -114,9 +92,9 @@
             padding: 30px 20px;
             background-color: var(--gray-bg);
             position: sticky;
-            top: 98px;
+            top: 90px;
             z-index: 999;
-            border-bottom: 1px solid rgba(7, 11, 25, 0.05);
+            border-bottom: 1px solid rgba(5, 10, 30, 0.05);
         }
 
         .tab-btn {
@@ -142,28 +120,24 @@
             font-family: 'Amiri', serif;
             font-size: 2.8rem;
             color: var(--royal-indigo);
-            position: relative;
         }
 
-        /* نظام المربعات الكبيرة بنظام النزول لأسفل */
         .grid-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); /* مربعات كبيرة وفخمة */
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
             gap: 40px;
         }
 
-        /* كارت المنتج الملكي العمودي الكبير */
         .product-card {
             background-color: var(--white);
-            border: 1px solid rgba(7, 11, 25, 0.1);
+            border: 1px solid rgba(5, 10, 30, 0.1);
             display: flex;
-            flex-direction: column; /* نظام كارت رأسي ينزل لأسفل */
-            border-radius: 0;
+            flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(7, 11, 25, 0.04);
+            box-shadow: 0 15px 35px rgba(5, 10, 30, 0.04);
             transition: var(--transition-palace);
             opacity: 0;
             transform: translateY(50px);
@@ -175,15 +149,14 @@
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(7, 11, 25, 0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(5, 10, 30, 0.12);
             border-color: var(--gold);
         }
 
-        /* جزء الصورة الكبير */
         .image-wrapper {
             width: 100%;
-            height: 320px; /* طول الصورة المربع الكبير */
+            height: 320px;
             overflow: hidden;
             position: relative;
             background-color: var(--royal-indigo);
@@ -198,10 +171,8 @@
 
         .product-card:hover .product-img {
             transform: scale(1.08);
-            opacity: 0.9;
         }
 
-        /* السعر كشارة فوق الصورة */
         .price-badge {
             position: absolute;
             top: 20px;
@@ -214,7 +185,6 @@
             border: 1px solid var(--gold);
         }
 
-        /* تفاصيل الكارت */
         .product-details {
             padding: 30px;
             display: flex;
@@ -227,30 +197,27 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--royal-indigo);
-            margin-bottom: 4px;
         }
 
         .title-en {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--gold);
             font-style: italic;
             margin-bottom: 15px;
         }
 
-        /* المكونات */
         .ingredients-box {
             background-color: var(--gray-bg);
             padding: 15px;
             margin-bottom: 20px;
-            border-right: 3px solid var(--royal-indigo);
+            border-right: 3px solid var(--gold);
             flex-grow: 1;
         }
 
         .ing-label {
             font-size: 0.85rem;
             font-weight: 700;
-            text-transform: uppercase;
             color: var(--royal-indigo);
             margin-bottom: 5px;
             display: block;
@@ -259,39 +226,142 @@
         .ing-text-ar {
             font-size: 0.95rem;
             color: #4a5568;
-            margin-bottom: 4px;
         }
 
-        .ing-text-en {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.85rem;
-            color: #718096;
-        }
-
-        .action-area {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-        }
-
-        .order-royal-btn {
+        .order-trigger-btn {
             background: var(--royal-indigo);
             color: var(--white);
-            border: 1px solid var(--royal-indigo);
-            padding: 10px 24px;
-            font-size: 0.95rem;
-            font-weight: 600;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 700;
             cursor: pointer;
             transition: var(--transition-palace);
             width: 100%;
             text-align: center;
         }
 
-        .order-royal-btn:hover {
-            background: var(--white);
+        .order-trigger-btn:hover {
+            background-color: var(--gold);
             color: var(--royal-indigo);
-            border-color: var(--gold);
+        }
+
+        /* نافذة استمارة الطلب المنبثقة الفخمة (Popup Modal) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 10, 30, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-palace);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: var(--white);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            border-top: 5px solid var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            transform: scale(0.8);
+            transition: var(--transition-palace);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--royal-indigo);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--royal-indigo);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--royal-indigo);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            color: var(--royal-indigo);
+        }
+
+        .gps-btn {
+            background-color: #f1f5f9;
+            border: 1px dashed var(--royal-indigo);
+            color: var(--royal-indigo);
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            transition: var(--transition-palace);
+        }
+
+        .gps-btn.success {
+            background-color: #ecfdf5;
+            border-color: #10b981;
+            color: #065f46;
+        }
+
+        .submit-order-btn {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-palace);
+        }
+
+        .submit-order-btn:hover {
+            background-color: #1ebd54;
         }
 
         footer {
@@ -303,17 +373,39 @@
             border-top: 2px solid var(--gold);
         }
 
-        /* شاشات الجوال */
+        .footer-logo {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--gold);
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: var(--transition-palace);
+        }
+
+        .footer-link:hover {
+            background-color: var(--gold);
+            color: var(--royal-indigo);
+        }
+
         @media (max-width: 500px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .welcome-title {
-                font-size: 2.3rem;
-            }
-            .image-wrapper {
-                height: 240px;
-            }
+            .grid-container { grid-template-columns: 1fr; }
+            .welcome-title { font-size: 2.3rem; }
+            .image-wrapper { height: 240px; }
         }
     </style>
 </head>
@@ -321,103 +413,194 @@
 
     <header>
         <div class="logo-box">
-            <h1>قصر النخبة الملكي</h1>
-            <span>ROYAL ELITE PALACE</span>
+            <h1>مركز هالة</h1>
+            <span>HALA SWEETS CENTER</span>
         </div>
+        <div style="font-weight: bold; color: var(--gold); font-size: 0.95rem;">اليرموك، بغداد</div>
     </header>
 
-    <!-- الرسالة الترحيبية الفخمة جداً -->
     <section class="welcome-hero">
-        <h2 class="welcome-title">أهلاً بكم في عالم الفخامة والمذاق الرفيع</h2>
+        <h2 class="welcome-title">شغف الإبداع.. وعراقة المذاق الطيب</h2>
         <p class="welcome-text">
-            نفتخر في قصر النخبة الملكي بتقديم أندر وأفخم إبداعات الحلويات والكيك المصنوعة يدوياً بحب وعناية فائقة. نختار مكوناتنا بعناية ذهبية لنضمن لكم تجربة تذوق ملوكية تليق بمناسباتكم السعيدة وذوقكم الرفيع.
+            مرحباً بكم في مركز هالة. نصنع لكم من التفاصيل البسيطة والمكونات الطازجة تحفاً فنية تذوب حباً في الفم. نجمع بين دقة واحترافية التصنيع، لنهديكم في كل قطعة تجربة تذوق استثنائية لا تُنسى.
         </p>
-        <p class="welcome-text-en">Welcome to the world of luxury, craftsmanship, and exquisite royal taste.</p>
     </section>
 
-    <!-- أزرار التنقل السريع بين الأقسام الـ 50 -->
     <div class="tabs-container">
-        <button class="tab-btn active" onclick="scrollToSection('cakes-sec')">قسم الكيك الفاخر (50 نوع)</button>
-        <button class="tab-btn" onclick="scrollToSection('sweets-sec')">قسم الحلويات الملكية (50 نوع)</button>
+        <button class="tab-btn active" onclick="scrollToSection('cakes-sec')">تشكيلة الكيك والحلويات (50 نوع)</button>
+        <button class="tab-btn" onclick="scrollToSection('sweets-sec')">تشكيلة التارت والمخبوزات الفاخرة (50 نوع)</button>
     </div>
 
-    <!-- قسم الكيك الفاخر (50 صنف) -->
-    <h2 class="section-title" id="cakes-sec">مجموعة الكيك المخملي الفاخر</h2>
+    <h2 class="section-title" id="cakes-sec">قائمة الكيك الفاخر والمميز</h2>
     <main class="grid-container" id="cakes-grid"></main>
 
-    <!-- قسم الحلويات الملكية (50 صنف) -->
-    <h2 class="section-title" id="sweets-sec">مجموعة الحلويات والقطع الملكية</h2>
+    <h2 class="section-title" id="sweets-sec">قائمة المخبوزات والتارت الفرنسي</h2>
     <main class="grid-container" id="sweets-grid"></main>
 
+    <!-- نافذة استمارة الطلب الذكية (Modal Popup) -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeModal()">✕</button>
+            <h3 class="modal-title" id="modalProductTitle">تفاصيل طلب الصنف</h3>
+            
+            <div class="form-group">
+                <label for="custName">اسمك الكريم:</label>
+                <input type="text" id="custName" placeholder="اكتب اسمك الكامل هنا">
+            </div>
+
+            <div class="form-group">
+                <label for="custNotes">ملاحظات على الطلب (الكتابة على الكيك، الحجم، التعديلات):</label>
+                <textarea id="custNotes" rows="3" placeholder="أضف أي ملاحظات خاصة هنا..."></textarea>
+            </div>
+
+            <!-- زر تحديد الـ GPS الجغرافي التلقائي -->
+            <button class="gps-btn" id="gpsBtn" onclick="getLocation()">
+                📍 اضغط هنا لإرفاق موقع الـ GPS التلقائي لعنوانك
+            </button>
+
+            <button class="submit-order-btn" onclick="sendToWhatsApp()">🚀 إرسال الطلب عبر الواتساب المباشر</button>
+        </div>
+    </div>
+
     <footer>
-        <p style="font-family: 'Amiri', serif; font-size: 2rem; color: var(--gold);">قصر النخبة الملكي للحلويات</p>
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">جميع الحقوق محفوظة © 2026 - تجربة طهي ملكية فريدة</p>
+        <div class="footer-logo">مركز هالة للحلويات والكيك</div>
+        <div class="footer-links">
+            <a class="footer-link" href="https://maps.google.com/?q=Al-Yarmouk+Baghdad" target="_blank">📍 موقعنا على Google Maps</a>
+            <a class="footer-link" href="https://wa.me/9647713561219" target="_blank">💬 تواصل معنا مباشرة</a>
+        </div>
+        <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 40px;">جميع الحقوق محفوظة لـ مركز هالة © 2026</p>
     </footer>
 
     <script>
-        // دالة التنقل السلس للأسفل
+        let selectedProduct = "";
+        let selectedPrice = "";
+        let userLatitude = "";
+        let userLongitude = "";
+
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // تغيير حالة الأزرار نشطة
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
         }
 
-        // قوالب توليد الـ 50 صنفاً لكل قسم بكفاءة وسرعة
-        const cakeNames = [
-            {ar: "كيكة الشوكولاتة الداكنة بالذهب", en: "Golden Dark Chocolate Cake", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600", ingAr: "شوكولاتة بلجيكية 70%، كريمة طازجة، رقائق الذهب القابلة للأكل", ingEn: "70% Belgian chocolate, fresh cream, edible gold flakes"},
-            {ar: "كيكة الفراولة والملوك", en: "Royal Strawberry Shortcake", img: "https://images.unsplash.com/photo-1464349110296-4d504e74939d?w=600", ingAr: "فراولة برية طازجة، فانيليا مدغشقر، طبقات إسفنجية خفيفة", ingEn: "Wild strawberries, Madagascar vanilla, light sponge layers"},
-            {ar: "مخملية الرد فيلفت الملكية", en: "Imperial Red Velvet Cake", img: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?w=600", ingAr: "كاكاو فاخر، كريمة الجبن الغنية، لمسة مخملية ناعمة", ingEn: "Premium cocoa, rich cream cheese frosting, velvet texture"},
-            {ar: "تشيز كيك نيويورك المخبوز", en: "Signature New York Baked Cheesecake", img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600", ingAr: "جبن كريمي غني، قاعدة بسكويت الزبدة المقرمشة، توت بري", ingEn: "Rich cream cheese, buttery biscuit crust, wild blueberry glaze"}
+        const cakeTemplates = [
+            {ar: "كيكة الشوكولاتة الداكنة الكلاسيكية", en: "Classic Dark Chocolate Cake", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600", ingAr: "كاكاو خام 72%، كريمة مخفوقة غنية، ورقائق بلجيكية ناعمة"},
+            {ar: "كيكة الفراولة والفانيليا الطازجة", en: "Fresh Vanilla & Strawberry Cake", img: "https://images.unsplash.com/photo-1464349110296-4d504e74939d?w=600", ingAr: "فراولة برية منتقاة، كريمة الفانيليا الإيطالية، طبقة إسفنجية خفيفة"},
+            {ar: "مخملية الرد فيلفت بالكريمة الغنية", en: "Elegant Red Velvet Cake", img: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?w=600", ingAr: "عجينة مخملية تقليدية، غاناش كريمي ناعم، وقطع كاكاو فاخرة"},
+            {ar: "نيويورك تشيز كيك بالكرز البري", en: "New York Wild Cherry Cheesecake", img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600", ingAr: "جبن كريمي عالي الجودة، بسكويت بالزبدة الطبيعية، صوص كرز بري"}
         ];
 
-        const sweetNames = [
-            {ar: "ماكرون باريس الملكي المشكل", en: "Grand Assorted Parisian Macarons", img: "https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600", ingAr: "بودرة اللوز الفاخرة، غاناش الشوكولاتة، حشوات الفواكه الطبيعية", ingEn: "Fine almond flour, chocolate ganache, natural fruit fillings"},
-            {ar: "تارت التوت البري الفاخر", en: "Luxurious Wild Berry Tart", img: "https://images.unsplash.com/photo-1519869325930-281384150729?w=600", ingAr: "عجينة التارت المقرمشة، باستري كريم غني، توت طازج مشكل", ingEn: "Crisp tart pastry, rich pastry cream, fresh mixed berries"},
-            {ar: "تيراميسو القهوة الإيطالية الملكي", en: "Imperial Espresso Tiramisu", img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600", ingAr: "جبن الماسكاربوني، أصابع السافوياردي المغموسة بالإسبريسو الفاخر", ingEn: "Mascarpone cheese, savoiardi biscuits soaked in premium espresso"},
-            {ar: "إكلير الشوكولاتة الفرنسية النادرة", en: "Rare French Chocolate Eclair", img: "https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=600", ingAr: "عجينة الشو الهشة، حشوة كاسترد الشوكولاتة، غاناش لامع", ingEn: "Choux pastry, rich chocolate custard filling, glossy ganache"}
+        const sweetTemplates = [
+            {ar: "تارت التوت الفرنسي الفاخر", en: "Elegant French Raspberry Tart", img: "https://images.unsplash.com/photo-1519869325930-281384150729?w=600", ingAr: "عجينة البات سابليه الهشة، باستري كريم طازج، وتوت العليق الأحمر"},
+            {ar: "تيراميسو الإسبريسو الإيطالي الأصيل", en: "Authentic Espresso Tiramisu", img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600", ingAr: "بسكويت ليدي فينجر المغموس بقهوتنا المختصة، كريمة ماسكاربوني غنية"},
+            {ar: "ماكرون باريسي مشكل غني بنكهاته", en: "Deluxe Assorted Parisian Macarons", img: "https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600", ingAr: "بودرة اللوز الإسباني الفاخر، حشوة المربيات الطبيعية والشوكولاتة"}
         ];
 
-        function generateSectionData(containerId, dataTemplates, basePrice) {
+        function generateSweetsAndCakes(containerId, templates, basePrice) {
             const container = document.getElementById(containerId);
-            
-            // توليد 50 عنصراً فريداً تماماً بتعديل الأسماء والأسعار والترتيب بناءً على القوالب الفخمة
             for (let i = 1; i <= 50; i++) {
-                const template = dataTemplates[(i - 1) % dataTemplates.length];
-                const price = basePrice + (i * 1000); // تدرج مالي بالدينار كمثال أو بالدولار حسب رغبتك
-                
+                const item = templates[(i - 1) % templates.length];
+                const finalPrice = basePrice + (i * 500);
+                const priceStr = finalPrice.toLocaleString() + " د.ع";
+
                 const card = document.createElement('div');
                 card.classList.add('product-card');
                 
                 card.innerHTML = `
                     <div class="image-wrapper">
-                        <img class="product-img" src="${template.img}" alt="${template.ar} ${i}" loading="lazy">
-                        <div class="price-badge">${price.toLocaleString()} د.ع</div>
+                        <img class="product-img" src="${item.img}" alt="${item.ar} ${i}" loading="lazy">
+                        <div class="price-badge">${priceStr}</div>
                     </div>
                     <div class="product-details">
-                        <h3 class="title-ar">${template.ar} #${i}</h3>
-                        <p class="title-en">${template.en} Deluxe No.${i}</p>
-                        
+                        <h3 class="title-ar">${item.ar} #${i}</h3>
+                        <p class="title-en">${item.en} Premium No.${i}</p>
                         <div class="ingredients-box">
-                            <span class="ing-label">المكونات | Ingredients</span>
-                            <p class="ing-text-ar">${template.ingAr} مع إضافات ملكية خاصة.</p>
-                            <p class="ing-text-en">${template.ingEn} with unique royal touches.</p>
+                            <span class="ing-label">المكونات والمذاق | Ingredients</span>
+                            <p class="ing-text-ar">${item.ingAr}</p>
                         </div>
-                        
-                        <div class="action-area">
-                            <button class="order-royal-btn">طلب الصنف الملكي | Order Now</button>
-                        </div>
+                        <button class="order-trigger-btn" onclick="openModal('${item.ar} #${i}', '${priceStr}')">
+                            ✨ اطلب الآن واقفل تفاصيل الطلب
+                        </button>
                     </div>
                 `;
                 container.appendChild(card);
             }
         }
 
-        // بناء البيانات الضخمة (50 كيك + 50 حلويات = 100 صنف فخم جداً ينزل لأسفل)
-        generateSectionData('cakes-grid', cakeNames, 35000);
-        generateSectionData('sweets-grid', sweetNames, 15000);
+        generateSweetsAndCakes('cakes-grid', cakeTemplates, 30000);
+        generateSweetsAndCakes('sweets-grid', sweetTemplates, 18000);
 
-        // مراقب الحركة الفخم (Scroll Motion)
+        // وظائف النافذة المنبثقة والـ GPS والواتساب
+        function openModal(title, price) {
+            selectedProduct = title;
+            selectedPrice = price;
+            document.getElementById('modalProductTitle').innerText = `طلب لـ: ${title} (${price})`;
+            document.getElementById('orderModal').classList.add('active');
+            
+            // إعادة ضبط حقول الاستمارة
+            document.getElementById('custName').value = "";
+            document.getElementById('custNotes').value = "";
+            userLatitude = ""; userLongitude = "";
+            const gpsBtn = document.getElementById('gpsBtn');
+            gpsBtn.innerText = "📍 اضغط هنا لإرفاق موقع الـ GPS التلقائي لعنوانك";
+            gpsBtn.classList.remove('success');
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+        }
+
+        // استخراج موقع الـ GPS الحقيقي من جهاز المستخدم عبر المتصفح
+        function getLocation() {
+            const gpsBtn = document.getElementById('gpsBtn');
+            if (navigator.geolocation) {
+                gpsBtn.innerText = "جاري تحديد موقعك الجغرافي...";
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        userLatitude = position.coords.latitude;
+                        userLongitude = position.coords.longitude;
+                        gpsBtn.innerText = "✓ تم التقاط موقع الـ GPS بنجاح";
+                        gpsBtn.classList.add('success');
+                    },
+                    (error) => {
+                        alert("يرجى إعطاء صلاحية تحديد الموقع للمتصفح حتى نتمكن من إرسال لوكيشن عنوانك.");
+                        gpsBtn.innerText = "❌ فشل التقاط الموقع - اضغط للمحاولة";
+                    }
+                );
+            } else {
+                alert("تحديد الموقع الجغرافي غير مدعوم في متصفحك الحالي.");
+            }
+        }
+
+        // إرسال البيانات المنسقة بالكامل إلى رقم الواتساب المباشر للمركز
+        function sendToWhatsApp() {
+            const name = document.getElementById('custName').value.trim();
+            const notes = document.getElementById('custNotes').value.trim() || "لا توجد ملاحظات إضافية";
+            
+            if (!name) {
+                alert("يرجى كتابة اسمك الكريم لإتمام الطلب.");
+                return;
+            }
+
+            let gpsLink = "لم يتم مشاركة اللوكيشن الإلكتروني";
+            if (userLatitude && userLongitude) {
+                gpsLink = `https://www.google.com/maps?q=${userLatitude},${userLongitude}`;
+            }
+
+            // صياغة نص الرسالة الفخمة الموجهة لمركز هالة الحلويات
+            const textMessage = `*طلب جديد من موقع مركز هالة للحلويات* 🍰\n\n` +
+                                `• *اسم الزبون:* ${name}\n` +
+                                `• *المنتج المطلوب:* ${selectedProduct}\n` +
+                                `• *السعر الإجمالي:* ${selectedPrice}\n` +
+                                `• *ملاحظات الزبون:* ${notes}\n\n` +
+                                `📍 *لوكيشن الـ GPS المباشر للعنوان:* \n${gpsLink}`;
+
+            const finalWhatsAppUrl = `https://wa.me/9647713561219?text=${encodeURIComponent(textMessage)}`;
+            window.open(finalWhatsAppUrl, '_blank');
+            closeModal();
+        }
+
+        // مراقب الحركة للتمرير (Scroll Motion)
         const observerOptions = { threshold: 0.05, rootMargin: "0px 0px -40px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -427,7 +610,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.product-card').forEach(card => observer.observe(card));
     </script>
 </body>
