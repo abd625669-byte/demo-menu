@@ -3,234 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المنيو الملكي الفاخر</title>
+    <title>مركز الحلويات والكيك | Sweets & Cake Center</title>
+    <!-- استيراد خطوط مميزة من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <style>
+        /* إعدادات الألوان الأساسية: الأبيض والنيلي */
         :root {
-            --gold: #d4af37;
-            --dark-gold: #aa7c11;
-            --bg-dark: #0b0c10;
-            --card-bg: #1f2833;
+            --white: #ffffff;
+            --indigo-dark: #0f172a; /* نيلي غامق فخم */
+            --indigo-medium: #1e1b4b; /* نيلي متوسط */
+            --indigo-light: #4338ca; /* نيلي فاتح للتأثيرات */
+            --gray-light: #f8fafc;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-dark);
-            color: #fff;
-            margin: 0;
-            padding: 20px;
+            background-color: var(--white);
+            color: var(--indigo-dark);
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
         }
-        .header {
-            text-align: center;
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        .header h1 {
-            color: var(--gold);
-            font-size: 2.5rem;
-            margin: 0;
-            text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.3);
-        }
-        .menu-section {
-            margin-bottom: 40px;
-        }
-        .section-title {
-            color: var(--gold);
-            border-right: 4px solid var(--gold);
-            padding-right: 10px;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .menu-item {
-            background: var(--card-bg);
-            border: 1px solid var(--gold);
-            border-radius: 8px;
-            padding: 15px;
+
+        /* تنسيق الهيدر (رأس الصفحة) */
+        header {
+            background-color: var(--white);
+            border-bottom: 2px solid var(--indigo-dark);
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        .item-info h3 {
-            margin: 0 0 5px 0;
-            color: #fff;
-        }
-        .item-info p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #ccc;
-        }
-        .price {
-            color: var(--gold);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        /* زر نداء الكابتن الثابت */
-        .call-captain-panel {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(31, 40, 51, 0.95);
-            border: 2px solid var(--gold);
-            padding: 15px;
-            border-radius: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
         }
-        .call-captain-panel input {
-            width: 80px;
-            padding: 10px;
-            border: 1px solid var(--gold);
-            background: #000;
-            color: var(--gold);
-            border-radius: 25px;
+
+        .logo-box {
+            text-align: right;
+        }
+
+        .logo-ar {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--indigo-dark);
+            letter-spacing: 1px;
+        }
+
+        .logo-en {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--indigo-light);
+            display: block;
+            margin-top: -5px;
+        }
+
+        /* قسم الترحيب الرئيسي مع موشن دخول */
+        .hero-section {
             text-align: center;
-            font-size: 1rem;
-            font-weight: bold;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, var(--gray-light) 0%, var(--white) 100%);
+            animation: fadeInDown 1.2s ease-out;
         }
-        .call-btn {
-            background: linear-gradient(45deg, var(--dark-gold), var(--gold));
-            color: #000;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: bold;
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: var(--indigo-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--indigo-light);
+            font-style: italic;
+        }
+
+        /* حاوية نظام المربعات (Grid System) */
+        .grid-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            /* نظام مربعات متجاوب يعتمد على حجم الشاشة */
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        /* تصميم كارت المنتج (بنظام المربع والموشن التفاعلي) */
+        .product-card {
+            background-color: var(--white);
+            border: 2px solid var(--indigo-dark);
+            border-radius: 0px; /* تصميم كلاسيكي حاد الحواف */
+            display: flex;
+            flex-direction: row-reverse; /* الصورة بجانب النص */
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition-smooth);
+            box-shadow: 5px 5px 0px var(--indigo-dark); /* ظل صلب نيلي */
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* موشن ظهور تدريجي للكروت عند التمرير */
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* تأثير الحركة عند تمرير الماوس فوق الكارت */
+        .product-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 9px 9px 0px var(--indigo-light);
+            border-color: var(--indigo-light);
+        }
+
+        /* محتوى وتفاصيل المنتج */
+        .product-info {
+            width: 55%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: right;
+            background-color: var(--white);
+            z-index: 2;
+        }
+
+        .prod-title-ar {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--indigo-dark);
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .prod-title-en {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: var(--indigo-light);
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .order-btn {
+            background: none;
+            border: 1px solid var(--indigo-dark);
+            color: var(--indigo-dark);
+            padding: 5px 12px;
+            font-size: 0.8rem;
             cursor: pointer;
+            align-self: flex-start;
+            font-weight: bold;
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .order-btn {
+            background-color: var(--indigo-dark);
+            color: var(--white);
+        }
+
+        /* قسم الصورة الواقعية */
+        .product-image-container {
+            width: 45%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        /* حركة زوم هادئة للصورة عند الوقوف عليها */
+        .product-card:hover .product-img {
+            transform: scale(1.15);
+        }
+
+        /* الفوتر (تذييل الصفحة) */
+        footer {
+            background-color: var(--indigo-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-sub {
+            font-family: 'Playfair Display', serif;
             font-size: 1rem;
-            transition: 0.3s;
+            opacity: 0.8;
         }
-        .call-btn:disabled {
-            background: #444;
-            color: #888;
-            cursor: not-allowed;
-        }
-        .timer-text {
-            color: #ff4d4d;
-            font-size: 0.9rem;
-            display: none;
+
+        /* شاشات الجوال */
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .product-card {
+                height: 150px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .prod-title-ar {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>القصر الملكي للمأكولات</h1>
-        <p>تجربة طعام فاخرة لا تُنسى</p>
-    </div>
+    <!-- الهيدر الاستاتيكي الفخم -->
+    <header>
+        <div class="logo-box">
+            <span class="logo-ar">قصر النخبة</span>
+            <span class="logo-en">Elite Sweets Center</span>
+        </div>
+        <div style="font-weight: bold; color: var(--indigo-dark); font-size: 0.9rem;">القائمة الكاملة | FULL MENU</div>
+    </header>
 
-    <!-- سيتم ملء هذا الجزء ديناميكيًا من الـ LocalStorage أو العرض الافتراضي -->
-    <div id="menu-container"></div>
+    <!-- قسم الترحيب والمقدمة -->
+    <section class="hero-section">
+        <h1 class="hero-title">أفخر أنواع الكيك والحلويات</h1>
+        <p class="hero-subtitle">Premium Cakes & Handcrafted Desserts</p>
+    </section>
 
-    <!-- لوحة نداء الكابتن -->
-    <div class="call-captain-panel">
-        <label for="table-num" style="color: var(--gold); font-weight: bold;">رقم الطاولة:</label>
-        <input type="number" id="table-num" min="1" max="50" placeholder="00">
-        <button class="call-btn" id="call-btn" onclick="callCaptain()">نداء الكابتن 🛎️</button>
-        <span id="timer" class="timer-text"></span>
-    </div>
+    <!-- شبكة المربعات لعرض الـ 50 عنصر -->
+    <main class="grid-container" id="menu-grid">
+        <!-- سيتم توليد الـ 50 عنصر ديناميكياً هنا بالكامل بواسطة JavaScript لتفادي كتابة كود مكرر ضخم وسهل الصيانة -->
+    </main>
+
+    <!-- فوتر الموقع -->
+    <footer>
+        <div class="footer-logo">قصر النخبة للحلويات</div>
+        <div class="footer-sub">Elite Sweets & Cakes Center - 2026</div>
+    </footer>
 
     <script>
-        // الأقسام والوجبات الافتراضية في حال عدم وجود تعديل من الكابتن
-        const defaultMenu = [
-            {
-                category: "المقبلات الملكية",
-                items: [
-                    { name: "شوربة الفطر بالكريمة والزعفران", desc: "شوربة غنية بنكهة الزعفران الأصيل", price: "25000 د.ع" },
-                    { name: "كافيار ملكي فاخر", desc: "يقدم مع قطع الخبز المحمص والزبدة", price: "75000 د.ع" }
-                ]
-            },
-            {
-                category: "الأطباق الرئيسية",
-                items: [
-                    { name: "ضلوع الغنم المشوية بماء الذهب", desc: "تطهى ببطء لمدة 8 ساعات", price: "120000 د.ع" },
-                    { name: "ستيك التندرلوين الفاخر", desc: "لحم بقري أنغوس مع صلصة الفلفل الأسود", price: "95000 د.ع" }
-                ]
-            }
+        // مصفوفة تحتوي على بيانات 50 صنفاً رائعاً من الكيك والحلويات مع صور حقيقية ومصنفة
+        const products = [
+            { ar: "كيكة الشوكولاتة الداكنة", en: "Dark Chocolate Cake", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الفراولة الطازجة", en: "Fresh Strawberry Cake", img: "https://images.unsplash.com/photo-1464349110296-4d504e74939d?w=500&auto=format&fit=crop&q=80" },
+            { ar: "ماكرون فرنسي مشكل", en: "Assorted French Macarons", img: "https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تارت التوت البري", en: "Wild Berry Tart", img: "https://images.unsplash.com/photo-1519869325930-281384150729?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كوب كيك الفانيلا المخملي", en: "Velvet Vanilla Cupcake", img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تشيز كيك نيويورك", en: "New York Cheesecake", img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة رد فيلفت فاخرة", en: "Premium Red Velvet", img: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تارت الليمون المنعش", en: "Tangy Lemon Tart", img: "https://images.unsplash.com/photo-1508737804141-4c3b688e2546?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الكراميل المملح", en: "Salted Caramel Cake", img: "https://images.unsplash.com/photo-1557925923-cd4648e21187?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الفستق والورد", en: "Pistachio & Rose Cake", img: "https://images.unsplash.com/photo-1511018556340-d16986a1c194?w=500&auto=format&fit=crop&q=80" },
+            { ar: "دونات مغطاة بالشوكولاتة", en: "Glazed Chocolate Donuts", img: "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تيراميسو إيطالي أصلي", en: "Classic Italian Tiramisu", img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الزعفران اللذيذة", en: "Golden Saffron Cake", img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&auto=format&fit=crop&q=80" },
+            { ar: "براونيز غني بقطع الشوكولاتة", en: "Fudgy Chocolate Brownies", img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تشيز كيك لوتس دافئ", en: "Lotus Biscoff Cheesecake", img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الجزر والكروشند", en: "Carrot Cake with Walnuts", img: "https://images.unsplash.com/photo-1607301401229-0d19561b369c?w=500&auto=format&fit=crop&q=80" },
+            { ar: "سويس رول الفراولة", en: "Strawberry Swiss Roll", img: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تارت المانجو الاستوائي", en: "Tropical Mango Tart", img: "https://images.unsplash.com/photo-1542826438-bd32f43d626f?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الليمون والتوت الأزرق", en: "Lemon Blueberry Cake", img: "https://images.unsplash.com/photo-1516685018646-549198525c1b?w=500&auto=format&fit=crop&q=80" },
+            { ar: "ميل فوي بالكريمة", en: "Classic Mille-Feuille", img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تشيز كيك التوت المشكل", en: "Mixed Berries Cheesecake", img: "https://images.unsplash.com/photo-1524351199679-46cddf530c04?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة العسل الروسية", en: "Russian Honey Cake", img: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=500&auto=format&fit=crop&q=80" },
+            { ar: "ميني تارت الشوكولاتة", en: "Mini Chocolate Tart", img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كوب كيك ريد فيلفت", en: "Red Velvet Cupcake", img: "https://images.unsplash.com/photo-1614707267537-b85acf00c4b8?w=500&auto=format&fit=crop&q=80" },
+            { ar: "موس الشوكولاتة البلجيكية", en: "Belgian Chocolate Mousse", img: "https://images.unsplash.com/photo-1541795795328-f073b763494e?w=500&auto=format&fit=crop&q=80" },
+            { ar: "إكلير فرنسي بالشوكولاتة", en: "Chocolate French Eclair", img: "https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الشاي الكلاسيكية", en: "English Tea Cake", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تارت التفاح بالقرفة", en: "Apple Cinnamon Tart", img: "https://images.unsplash.com/photo-1568569350062-ebbf3dac195b?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة اللوز المحمص", en: "Toasted Almond Cake", img: "https://images.unsplash.com/photo-1511018556340-d16986a1c194?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كرواسون شوكولاتة ناعم", en: "Chocolate Croissant", img: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كوب كيك ليمون نقي", en: "Zesty Lemon Cupcake", img: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة جوز الهند الفاخرة", en: "Premium Coconut Cake", img: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=500&auto=format&fit=crop&q=80" },
+            { ar: "شورت كيك الفراولة", en: "Strawberry Shortcake", img: "https://images.unsplash.com/photo-1464349110296-4d504e74939d?w=500&auto=format&fit=crop&q=80" },
+            { ar: "موس الفراولة البارد", en: "Chilled Strawberry Mousse", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كوب كيك شوكولاتة وفستق", en: "Chocolate Pistachio Cupcake", img: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كعكة الغابة السوداء", en: "Black Forest Cake", img: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كوب كيك كراميل مملح", en: "Salted Caramel Cupcake", img: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500&auto=format&fit=crop&q=80" },
+            { ar: "سينابون القرفة الغني", en: "Glazed Cinnamon Rolls", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تشيز كيك الفستق الذهبي", en: "Golden Pistachio Cheesecake", img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&auto=format&fit=crop&q=80" },
+            { ar: "بافلوفا الفواكه الاستوائية", en: "Tropical Pavlova", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة البرتقال واللوز", en: "Orange Almond Cake", img: "https://images.unsplash.com/photo-1508737804141-4c3b688e2546?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة القهوة بالكريمة", en: "Creamy Espresso Cake", img: "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500&auto=format&fit=crop&q=80" },
+            { ar: "بسكويت الشوكولاتة الداكنة", en: "Dark Chocolate Cookies", img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تارت الكرز التقليدي", en: "Traditional Cherry Tart", img: "https://images.unsplash.com/photo-1519869325930-281384150729?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كوب كيك أوريو دبل شوكليت", en: "Oreo Double Chocolate Cupcake", img: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تارت الكمثرى باللوز", en: "Pear & Almond Tart", img: "https://images.unsplash.com/photo-1508737804141-4c3b688e2546?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الموز والجوز الغنية", en: "Banana Walnut Cake", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=80" },
+            { ar: "موس النوتيلا اللذيذ", en: "Creamy Nutella Mousse", img: "https://images.unsplash.com/photo-1541795795328-f073b763494e?w=500&auto=format&fit=crop&q=80" },
+            { ar: "كيكة الزبدة الكلاسيكية", en: "Classic Butter Cake", img: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=500&auto=format&fit=crop&q=80" },
+            { ar: "تارت مكسرات بالكراميل", en: "Caramel Nut Tart", img: "https://images.unsplash.com/photo-1519869325930-281384150729?w=500&auto=format&fit=crop&q=80" }
         ];
 
-        // تحميل المنيو
-        function loadMenu() {
-            const savedMenu = localStorage.getItem('royalMenu');
-            const menu = savedMenu ? JSON.parse(savedMenu) : defaultMenu;
-            const container = document.getElementById('menu-container');
-            container.innerHTML = '';
+        const gridContainer = document.getElementById('menu-grid');
 
-            menu.forEach(section => {
-                let sectionHtml = `<div class="menu-section">
-                    <h2 class="section-title">${section.category}</h2>
-                    <div class="menu-grid">`;
-                
-                section.items.forEach(item => {
-                    sectionHtml += `
-                        <div class="menu-item">
-                            <div class="item-info">
-                                <h3>${item.name}</h3>
-                                <p>${item.desc}</p>
-                            </div>
-                            <div class="price">${item.price}</div>
-                        </div>`;
-                });
-
-                sectionHtml += `</div></div>`;
-                container.innerHTML += sectionHtml;
-            });
-        }
-
-        // دالة نداء الكابتن مع شروط الحماية
-        function callCaptain() {
-            const tableInput = document.getElementById('table-num').value;
-            const callBtn = document.getElementById('call-btn');
-            const timerText = document.getElementById('timer');
-
-            if (!tableInput || tableInput < 1 || tableInput > 50) {
-                alert("يرجى إدخال رقم طاولة صحيح بين 1 و 50");
-                return;
-            }
-
-            // إرسال التنبيه للكابتن عبر الـ LocalStorage
-            let activeCalls = JSON.parse(localStorage.getItem('activeCalls')) || [];
-            if (!activeCalls.includes(parseInt(tableInput))) {
-                activeCalls.push(parseInt(tableInput));
-                localStorage.setItem('activeCalls', JSON.stringify(activeCalls));
-            }
-
-            alert(`تم إرسال النداء للطاولة رقم ${tableInput}. الكابتن في طريقه إليك.`);
-
-            // تفعيل حظر الـ 3 دقائق (180 ثانية)
-            callBtn.disabled = true;
-            let timeLeft = 180; 
-            timerText.style.display = "inline";
-
-            const countdown = setInterval(() => {
-                let minutes = Math.floor(timeLeft / 60);
-                let seconds = timeLeft % 60;
-                timerText.innerText = `يمكنك المحاولة مجدداً بعد ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-                timeLeft--;
-
-                if (timeLeft < 0) {
-                    clearInterval(countdown);
-                    callBtn.disabled = false;
-                    timerText.style.display = "none";
-                }
-            }, 1000);
-        }
-
-        // تحديث المنيو تلقائياً إذا غيره الكابتن
-        window.addEventListener('storage', (e) => {
-            if (e.key === 'royalMenu') loadMenu();
+        // بناء الـ 50 كارت وضخهم داخل الصفحة
+        products.forEach((product, index) => {
+            const card = document.createElement('div');
+            card.classList.add('product-card');
+            
+            card.innerHTML = `
+                <div class="product-image-container">
+                    <img class="product-img" src="${product.img}" alt="${product.ar}" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="prod-title-ar">${product.ar}</h3>
+                    <p class="prod-title-en">${product.en}</p>
+                    <button class="order-btn">اطلب الآن | Order</button>
+                </div>
+            `;
+            
+            gridContainer.appendChild(card);
         });
 
-        loadMenu();
+        // تشغيل تأثيرات موشن الانزلاق والدخول الجميل (Scroll Animation) عند التمرير
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // تشغيل الحركة لمرة واحدة فقط لجمال الأداء
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
